@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prof. DaeHun Nyang | ISRL @ Ewha Womans University</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Noto Sans KR & Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif; /* Poppins for English headings */
+            scroll-behavior: smooth;
+        }
+        /* Fix for sticky header covering section titles on click */
+        html {
+            scroll-padding-top: 5rem;
+        }
+        /* Ewha Green Custom Color */
+        .text-ewha { color: #00462A; }
+        .bg-ewha { background-color: #00462A; }
+        .border-ewha { border-color: #00462A; }
+        .hover-bg-ewha:hover { background-color: #003620; }
+        
+        /* Timeline lines */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            width: 2px;
+            background-color: #e5e7eb;
+            z-index: 0;
+        }
+
+        /* Smooth Fade In Animation */
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-ewha flex items-center">
+                        <i class="fas fa-shield-alt mr-2"></i> ISRL
+                        <span class="text-gray-400 text-sm ml-2 font-normal hidden sm:inline">Info. Security Research Lab</span>
+                    </span>
+                </div>
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="#home" class="text-gray-600 hover:text-ewha font-medium transition">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-ewha font-medium transition">About</a>
+                    <a href="#biography" class="text-gray-600 hover:text-ewha font-medium transition">Biography</a>
+                    <a href="#service" class="text-gray-600 hover:text-ewha font-medium transition">Service</a>
+                    <a href="#research" class="text-gray-600 hover:text-ewha font-medium transition">Research</a>
+                    <a href="#publications" class="text-gray-600 hover:text-ewha font-medium transition">Publications</a>
+                    <a href="#contact" class="px-4 py-2 rounded-md bg-ewha text-white hover:bg-opacity-90 transition font-medium">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-white py-20 lg:py-28 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 text-center md:text-left fade-in">
+                <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-4">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-ewha uppercase bg-green-50 rounded-full">
+                        CIO of Ewha Womans Univ.
+                    </span>
+                    <span class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-gray-600 uppercase bg-gray-100 rounded-full">
+                        Director of ISRL
+                    </span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4 leading-tight">
+                    Prof. DaeHun Nyang<br>
+                    <span class="text-2xl md:text-3xl font-medium text-gray-600">양대헌 교수</span>
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
+                    Professor at <span class="font-semibold">Ewha Womans University</span>.<br>
+                    Chief Information Officer (CIO).<br>
+                    Leading research in <span class="text-ewha font-bold">Resource-Efficient AI Systems, AI/Networked System Security and Privacy</span>.
+                </p>
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a href="#contact" class="px-8 py-3 rounded-full bg-ewha text-white font-bold shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+                        Join Our Lab
+                    </a>
+                    <a href="http://seclab.ewha.ac.kr" target="_blank" class="px-8 py-3 rounded-full border-2 border-ewha text-ewha font-bold hover:bg-ewha hover:text-white transition">
+                        Lab Website <i class="fas fa-external-link-alt ml-1"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 mt-12 md:mt-0 flex justify-center fade-in delay-200">
+                <div class="relative w-full max-w-md rounded-xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-gray-100 bg-gray-200 group">
+                    <img src="./nyangportrait.jpg" 
+                         onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-80 bg-gray-100 text-gray-500 text-center p-4\'><i class=\'fas fa-image text-4xl mb-2 block\'></i><span>Image not found.<br>Ensure <b>Screenshot-2025-03-24-at-18.55.08.jpg</b><br>is in the folder.</span></div>'"
+                         alt="Professor DaeHun Nyang" 
+                         class="w-full h-auto object-cover transform transition duration-500 group-hover:scale-105">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                        <p class="text-white font-bold">Information Security Research Lab</p>
+                        <p class="text-gray-200 text-sm">Ewha Womans University</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">About Professor Nyang</h2>
+                <div class="w-24 h-1 bg-ewha mx-auto rounded-full"></div>
+            </div>
+            <div class="text-lg text-gray-700 leading-relaxed space-y-6 text-justify">
+                <p>
+                    Dr. DaeHun Nyang is a distinguished researcher in cybersecurity and resource-efficient computing. He currently serves as a Professor in the <strong>Cyber Security Department of the College of Artificial Intelligence</strong> at Ewha Womans University and as the <strong>Chief Information Officer (CIO)</strong> of the university's Office of Information Technology. He is also the founding director of the Information Security Research Laboratory (ISRL).
+                </p>
+                <p>
+                    His research philosophy bridges theoretical advancements with practical applications. Dr. Nyang's main research area is <strong>approximate computing</strong>, with a current focus on <strong>Resource-efficient AI systems</strong>, network measurement, counting algorithms, and fast hash tables. He is actively exploring <strong>differential privacy for AI, AI/ML engineering, vector DBs, LSM trees, and compact tensor representations</strong>. Additionally, his work extends to In-Network Security (INS) powered by P4-programmable routers, encrypted traffic analysis (TOR/TLS), Zero-Knowledge Proofs (ZKIP), digital signatures, and blockchain technology.
+                </p>
+                <p>
+                    He holds a B.Eng. with a double major in Electronic Engineering and Computer Science from <strong>KAIST</strong>, and M.S. and Ph.D. degrees in Computer Science from <strong>Yonsei University</strong>. Prior to Ewha, he was a Senior Researcher at ETRI and a Professor at Inha University for 17 years. He is a member of IEEE, ACM, and KIISC, and has served as the Editor-in-Chief for the KIISC Journal.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biography Section (Education & Experience) -->
+    <section id="biography" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Biography</h2>
+                <div class="w-24 h-1 bg-ewha mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Education -->
+                <div class="fade-in delay-100">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-8 flex items-center">
+                        <i class="fas fa-graduation-cap text-ewha mr-3"></i> Education
+                    </h3>
+                    <div class="relative border-l-2 border-gray-200 ml-3 space-y-8">
+                        <div class="ml-6 relative">
+                            <span class="absolute -left-9 top-1 w-5 h-5 bg-white border-4 border-ewha rounded-full"></span>
+                            <h4 class="text-lg font-bold text-gray-900">Ph.D. in Computer Science</h4>
+                            <p class="text-ewha font-medium">Yonsei University, Korea</p>
+                            <span class="text-sm text-gray-500">2000</span>
+                        </div>
+                        <div class="ml-6 relative">
+                            <span class="absolute -left-9 top-1 w-5 h-5 bg-white border-4 border-ewha rounded-full"></span>
+                            <h4 class="text-lg font-bold text-gray-900">M.S. in Computer Science</h4>
+                            <p class="text-ewha font-medium">Yonsei University, Korea</p>
+                            <span class="text-sm text-gray-500">1996</span>
+                        </div>
+                        <div class="ml-6 relative">
+                            <span class="absolute -left-9 top-1 w-5 h-5 bg-white border-4 border-ewha rounded-full"></span>
+                            <h4 class="text-lg font-bold text-gray-900">B.Eng. in Electronic Eng. & CS</h4>
+                            <p class="text-ewha font-medium">KAIST, Korea</p>
+                            <span class="text-sm text-gray-500">1994</span>
+                            <p class="text-xs text-gray-500 mt-1">Double Major</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional Experience -->
+                <div class="fade-in delay-200">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-8 flex items-center">
+                        <i class="fas fa-briefcase text-ewha mr-3"></i> Experience
+                    </h3>
+                    <div class="relative border-l-2 border-gray-200 ml-3 space-y-8">
+                        <div class="ml-6 relative">
+                            <span class="absolute -left-9 top-1 w-5 h-5 bg-white border-4 border-blue-600 rounded-full"></span>
+                            <h4 class="text-lg font-bold text-gray-900">Chief Information Officer (CIO)</h4>
+                            <p class="text-gray-700">Office of Information Technology, Ewha Womans University</p>
+                            <span class="text-sm text-gray-500">Feb 2025 - Present</span>
+                        </div>
+                        <div class="ml-6 relative">
+                            <span class="absolute -left-9 top-1 w-5 h-5 bg-white border-4 border-blue-600 rounded-full"></span>
+                            <h4 class="text-lg font-bold text-gray-900">Professor</h4>
+                            <p class="text-gray-700">Cyber Security Dept., College of AI, Ewha Womans University</p>
+                            <span class="text-sm text-gray-500">2020 - Present</span>
+                        </div>
+                        <div class="ml-6 relative">
+                            <span class="absolute -left-9 top-1 w-5 h-5 bg-white border-4 border-gray-400 rounded-full"></span>
+                            <h4 class="text-lg font-bold text-gray-900">Professor</h4>
+                            <p class="text-gray-700">Computer Science & Engineering, Inha University</p>
+                            <span class="text-sm text-gray-500">2003 - 2020</span>
+                        </div>
+                        <div class="ml-6 relative">
+                            <span class="absolute -left-9 top-1 w-5 h-5 bg-white border-4 border-gray-400 rounded-full"></span>
+                            <h4 class="text-lg font-bold text-gray-900">Founding Director</h4>
+                            <p class="text-gray-700">Information Security Research Laboratory (ISRL)</p>
+                            <span class="text-sm text-gray-500">2003 - Present</span>
+                        </div>
+                        <div class="ml-6 relative">
+                            <span class="absolute -left-9 top-1 w-5 h-5 bg-white border-4 border-gray-400 rounded-full"></span>
+                            <h4 class="text-lg font-bold text-gray-900">Senior Researcher</h4>
+                            <p class="text-gray-700">Electronics and Telecommunications Research Institute (ETRI)</p>
+                            <span class="text-sm text-gray-500">2000 - 2003</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Services Section -->
+    <section id="service" class="py-16 bg-white border-y border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Professional Services</h2>
+                <div class="w-24 h-1 bg-ewha mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-in delay-100">
+                <!-- Service 1 -->
+                <div class="bg-gray-50 p-6 rounded-xl border hover:border-ewha transition text-center">
+                    <i class="fas fa-book-reader text-3xl text-ewha mb-4"></i>
+                    <h4 class="font-bold text-lg mb-2">Editor-in-Chief (EiC)</h4>
+                    <p class="text-gray-600 text-sm">KIISC Journal (2021 - 2024)</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="bg-gray-50 p-6 rounded-xl border hover:border-ewha transition text-center">
+                    <i class="fas fa-edit text-3xl text-blue-600 mb-4"></i>
+                    <h4 class="font-bold text-lg mb-2">Section Editor</h4>
+                    <p class="text-gray-600 text-sm">ETRI Journal (Information Security Section)</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="bg-gray-50 p-6 rounded-xl border hover:border-ewha transition text-center">
+                    <i class="fas fa-users-cog text-3xl text-purple-600 mb-4"></i>
+                    <h4 class="font-bold text-lg mb-2">Executive Director</h4>
+                    <p class="text-gray-600 text-sm">Korean Institute of Information Security and Cryptology (KIISC)</p>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center fade-in delay-200">
+                <span class="text-gray-500 font-medium mr-2">Memberships:</span>
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-sm font-bold mx-1">IEEE</span>
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-sm font-bold mx-1">ACM</span>
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-sm font-bold mx-1">KIISC</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Focus Section -->
+    <section id="research" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Research Focus</h2>
+                <div class="w-24 h-1 bg-ewha mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-600">
+                    Focusing on <strong>Approximate Computing</strong> and <strong>Resource-Efficient AI Systems</strong>.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 border-l-4 border-ewha fade-in delay-100">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-ewha mr-4">
+                            <i class="fas fa-server text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Resource-Efficient AI Systems</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-2 list-disc list-inside text-sm">
+                        <li><strong>Vector DB</strong> & LSM Tree Optimization</li>
+                        <li>Compact Tensor Representation</li>
+                        <li>AI/ML Engineering</li>
+                        <li>Approximate Computing & Fast Hash Tables</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 border-l-4 border-blue-600 fade-in delay-200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mr-4">
+                            <i class="fas fa-robot text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">AI Security & Privacy</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-2 list-disc list-inside text-sm">
+                        <li><strong>Differential Privacy for AI</strong></li>
+                        <li>Adversarial Examples Detection</li>
+                        <li>Source/Binary Code Analysis</li>
+                        <li>Deep Learning-based Fuzzy Key Extractor</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 border-l-4 border-purple-600 fade-in delay-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 mr-4">
+                            <i class="fas fa-network-wired text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Network Security</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-2 list-disc list-inside text-sm">
+                        <li><strong>In-Network Security (INS)</strong> (P4 Routers)</li>
+                        <li>Encrypted Traffic Analysis (TOR/TLS)</li>
+                        <li>DDoS Defense & Approximate Counting</li>
+                        <li>Network Measurement & Profiling</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition duration-300 border-l-4 border-orange-500 fade-in delay-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center text-orange-500 mr-4">
+                            <i class="fas fa-key text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">System & Crypto</h3>
+                    </div>
+                    <ul class="text-gray-600 space-y-2 list-disc list-inside text-sm">
+                        <li>Blockchain & Digital Signature</li>
+                        <li>Zero-Knowledge Proof (ZKIP)</li>
+                        <li>Usable Security</li>
+                        <li>Ransomware/Malware Detection</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Publications Section -->
+    <section id="publications" class="py-20 bg-white border-t border-gray-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Selected Publications</h2>
+                <div class="w-24 h-1 bg-ewha mx-auto rounded-full"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                    Extensive publication record in prestigious venues such as <span class="font-semibold text-ewha">NDSS, USENIX Security, CCS, INFOCOM, ICDCS, PETS</span>, and top journals including <span class="italic">IEEE ToN, TMC, TPDS, TDSC, TIFS</span>.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Paper 1: NDSS 2025 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition border-l-4 border-blue-800 fade-in delay-100">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-3">
+                        <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-bold mb-2 md:mb-0">
+                            <i class="fas fa-certificate mr-1"></i> NDSS 2025
+                        </span>
+                        <span class="text-gray-500 text-sm font-medium"><i class="fas fa-map-marker-alt mr-1"></i> San Diego, USA</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 leading-snug">SketchFeature: High-Quality Per-Flow Feature Extractor Towards Security-Aware Data Plane</h3>
+                    <p class="text-gray-600 text-sm">Sian Kim, Seyed Mohammad Mehdi Mirnajafizadeh, Bara Kim, Rhongho Jang, <strong>DaeHun Nyang</strong></p>
+                </div>
+
+                <!-- Paper 2: USENIX Security 2024 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition border-l-4 border-indigo-600 fade-in delay-100">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-3">
+                        <span class="inline-block px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-bold mb-2 md:mb-0">
+                            <i class="fas fa-shield-alt mr-1"></i> USENIX Security 2024
+                        </span>
+                        <span class="text-gray-500 text-sm font-medium"><i class="fas fa-map-marker-alt mr-1"></i> Philadelphia, USA</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 leading-snug">Enhancing Network Attack Detection with Distributed and In-Network Data Collection System</h3>
+                    <p class="text-gray-600 text-sm">Seyed Mohammad Mehdi Mirnajafizadeh, Ashwin Raam Sethuram, David Mohaisen, <strong>DaeHun Nyang</strong>, Rhongho Jang</p>
+                </div>
+
+                <!-- Paper 3: NDSS 2023 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition border-l-4 border-blue-600 fade-in delay-200">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-3">
+                        <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-bold mb-2 md:mb-0">
+                            <i class="fas fa-certificate mr-1"></i> NDSS 2023
+                        </span>
+                        <span class="text-gray-500 text-sm font-medium"><i class="fas fa-map-marker-alt mr-1"></i> San Diego, USA</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 leading-snug">A Robust Counting Sketch for Data Plane Intrusion Detection</h3>
+                    <p class="text-gray-600 text-sm">Sian Kim, Changhun Jung, Rhongho Jang, David Mohaisen, <strong>DaeHun Nyang</strong></p>
+                </div>
+
+                <!-- Paper 4: ACM CCS 2022 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition border-l-4 border-red-500 fade-in delay-200">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-3">
+                        <span class="inline-block px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-bold mb-2 md:mb-0">
+                            <i class="fas fa-lock mr-1"></i> ACM CCS 2022
+                        </span>
+                        <span class="text-gray-500 text-sm font-medium"><i class="fas fa-map-marker-alt mr-1"></i> Los Angeles, USA</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 leading-snug">A Scalable and Dynamic ACL System for In-Network Defense</h3>
+                    <p class="text-gray-600 text-sm">Changhun Jung, Sian Kim, Rhongho Jang, David Mohaisen, <strong>DaeHun Nyang</strong></p>
+                </div>
+
+                <!-- Paper 5: IEEE INFOCOM 2020 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition border-l-4 border-green-600 fade-in delay-300">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-3">
+                        <span class="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-bold mb-2 md:mb-0">
+                            <i class="fas fa-network-wired mr-1"></i> IEEE INFOCOM 2020
+                        </span>
+                        <span class="text-gray-500 text-sm font-medium"><i class="fas fa-globe mr-1"></i> Virtual Conference</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 leading-snug">DFD: Adversarial Learning-based Approach to Defend Against Website Fingerprinting</h3>
+                    <p class="text-gray-600 text-sm">RhongHo Jang, Ahmed Abusnaina, Aminollah Khormali, <strong>DaeHun Nyang</strong>, Aziz Mohaisen</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="http://seclab.ewha.ac.kr/?sort=international-papers" target="_blank" class="inline-flex items-center px-6 py-3 rounded-full border border-gray-300 text-ewha font-bold hover:bg-ewha hover:text-white transition shadow-sm">
+                    View Full Publication List <i class="fas fa-external-link-alt ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-ewha text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h2 class="text-3xl font-bold mb-6">Contact Information</h2>
+                    <p class="mb-8 text-gray-200">
+                        <strong>Information Security Research Lab (ISRL)</strong><br>
+                        If you are interested in research, industry-academia collaboration, or graduate studies, please contact us.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-ewha"></i>
+                            </div>
+                            <span class="text-lg font-medium">nyang@ewha.ac.kr</span>
+                        </div>
+                        <!-- Zoom Link Preserved -->
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-video text-ewha"></i>
+                            </div>
+                            <a href="https://ewha.zoom.us/my/nyang" target="_blank" class="text-lg font-medium hover:text-gray-200 transition border-b border-transparent hover:border-gray-200">
+                                https://ewha.zoom.us/my/nyang
+                            </a>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt text-ewha"></i>
+                            </div>
+                            <span class="text-lg font-medium">
+                                52, Ewhayeodae-gil, Seodaemun-gu, Seoul<br>
+                                Dept. of Cyber Security, Ewha Womans University
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm fade-in delay-200">
+                    <h3 class="text-xl font-bold mb-4">Join ISRL</h3>
+                    <p class="text-gray-200 mb-6 text-sm">
+                        ISRL is looking for passionate MS/PhD students and undergraduate interns interested in Resource-Efficient AI Systems and AI Security & Privacy.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                         <a href="http://seclab.ewha.ac.kr" target="_blank" class="block w-full text-center bg-white text-ewha font-bold py-3 rounded-lg hover:bg-gray-100 transition">
+                            Lab Website
+                        </a>
+                         <a href="mailto:nyang@ewha.ac.kr" class="block w-full text-center border border-white text-white font-bold py-3 rounded-lg hover:bg-white hover:text-ewha transition">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-sm">&copy; 2025 DaeHun Nyang & ISRL. All Rights Reserved.</p>
+            <p class="text-xs mt-2 text-gray-600">Department of Cyber Security, Ewha Womans University</p>
+        </div>
+    </footer>
+
+</body>
+</html>
